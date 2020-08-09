@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<html>
+	<head>
+		<title>Expensify by Team AMA</title>
+		<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>Expensify</strong> by Team AMA</a>
+					<nav id="nav">
+						<a href="Expensifyindex.html">Home</a>
+						<a href="About.html">About Us</a>
+						<a href="Contact.html">Contact Us</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Expensify</h1>
+					</header>
+			</section>
+
+
+
+		<!-- Three -->
+			<section id="three" class="wrapper align-center">
+				<div class="inner">
+					<div class="flex flex-spending">
+						<article>
+							<div class="image round">
+								<img src="images/pic01.jpg" alt="Pic 01" />
+							</div>
+							<header>
+								<h3>Spending Tracker<b /h3>
+							</header>
+							<p>Here you can view the amount of money you spend for each of your subscriptions on a monthly basis.</p>
+							
+							<div id="container" style="width: 100%; height: 100%"></div>
+							<script>
+						    	window.onload = function () { 
+						        anychart.onDocumentReady(function() {
+						        	var color1 = "#0277bd";
+
+								  // Variable for controlling color enlightenment
+								  var colorIndex = 0;
+
+								  // color lightning function
+								  function colorizer(){
+								     var mixColor1 = anychart.color.lighten(color1, colorIndex);
+								     colorIndex = colorIndex + 0.1;
+								     return mixColor1;
+								  }
+							    // the data 
+							    var data = {
+							      header: ["Month", "Expense"],
+							      rows: [
+							        {x:"Netflix", value:13, fill: (colorizer())},
+							        {x:"Spotify", value:10, fill: (colorizer())},
+							        {x:"Amazon Prime", value:10, fill: (colorizer())},
+							        {x:"Disney Plus", value:7, fill: (colorizer())},
+							        {x:"Hulu", value:12, fill: (colorizer())},
+							        {x:"Pandora", value:15, fill: (colorizer())},
+							        {x:"Youtube TV", value:65, fill: (colorizer())}
+							    ]};
+							    // create the chart
+						        var chart = anychart.column();
+						 
+						        // add the data
+						        chart.data(data);
+						 
+						        // set the chart title
+						        chart.title("Spending on Subscriptions ");
+						        // draw
+						        chart.container("container");
+						        chart.draw();
+						        }); }
+							</script>
+
+						</article>
+					</div>
+				</div>
+			</section>
+
+	
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

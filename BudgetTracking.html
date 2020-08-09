@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<html>
+	<head>
+		<title>Expensify by Team AMA</title>
+		<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>Expensify</strong> by Team AMA</a>
+					<nav id="nav">
+						<a href="Expensifyindex.html">Home</a>
+						<a href="About.html">About Us</a>
+						<a href="Contact.html">Contact Us</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Expensify</h1>
+					</header>
+			</section>
+
+
+		<!-- Three -->
+			<section id="three" class="wrapper align-center">
+				<div class="inner" >
+					<div id="flex" class="flex flex-budget">
+						<script>
+						function myFunction() {
+						  document.getElementById("flex").style.paddingLeft = "300px";
+						}
+						</script>
+						<article>
+							<header>
+								<h3> Budget Report </h3>
+							</header>
+							<p>Here you can compare your monthly spending to your monthly budget.</p>
+							<label for="name">Monthly Budget</label>
+							<input Budget="Budget" id="Budget" type="text" placeholder="Enter Budget">
+							<button onclick="myBudget(document.getElementById('Budget').value)">Enter</button>
+							<div id="container" style="width: 100%; height: 100%"></div>
+							</script>
+						    <script> 
+						    	function myBudget(Budget) { 
+						    		//alert(Budget);
+						        if (Budget =="")
+						        	alert('Enter Budget');
+						        else{
+						        	anychart.onDocumentReady(function() {
+							    // the data 
+							    var data = {
+							      header: ["Month", "Expense"],
+							      rows: [
+							        ["Jan 20", 42],
+							        ["Feb 20", 51],
+							        ["Mar 20", 76],
+							        ["Apr 20", 97],
+							        ["May 20", 103],
+							        ["Jun 20", 103],
+							        ["Jul 20", 143]
+							    ]};
+							    // create the chart
+						        var chart = anychart.column();
+						 
+						        // add the data
+						        chart.data(data);
+						 
+						        // set the chart title
+						        chart.title("Monthly Expense");
+						 		
+						 		var lineSeries = chart.line([
+												    ["Jan 20", Budget],
+											        ["Feb 20", Budget],
+											        ["Mar 20", Budget],
+											        ["Apr 20", Budget],
+											        ["May 20", Budget],
+											        ["Jun 20", Budget],
+											        ["Jul 20", Budget]
+												  ]);
+								lineSeries.name("Budget");
+								
+								var lineTooltip = lineSeries.tooltip();
+								  lineTooltip.format(function() {
+								    return "Budget: $" + this.value;
+								  });
+						        // draw
+						        chart.container("container");
+						        chart.draw();
+						        });} }
+						    </script>
+						</article>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
